@@ -10,6 +10,4 @@ app.use(require('body-parser'));
 app.use('/api/auth', user);
 app.use(require('./middleware/validate-session'))
 app.use('/api/game', game);
-app.listen(function() {
-    console.log("App is listening on 4000");
-})
+app.listen(4000, () => console.log(`App is running on http://localhost:4000`));
