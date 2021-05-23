@@ -1,14 +1,14 @@
-const express = require("express"); 
-var app = express();
-var db = require('./db');
-var user = require('./controllers/usercontroller');
-var game = require('./controllers/gamecontroller')
-const bp = require("body-parser");
+const express = require('express'); 
+const app = express();
+const db = require('./db');
+const user = require('./controllers/usercontroller');
+const game = require('./controllers/gamecontroller')
+const bp = require('body-parser');
 
 
 db.sync();
-app.use(bp.json());
 app.use(bp.urlencoded({ extended: true }));
+app.use(bp.json());
 app.use('/api/auth', user);
 app.use(require('./middleware/validate-session'))
 app.use('/api/game', game);
